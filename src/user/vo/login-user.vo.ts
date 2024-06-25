@@ -1,31 +1,46 @@
-interface UserInfo {
-    id: number;
+import { ApiProperty } from '@nestjs/swagger';
 
-    username: string;
+class UserInfo {
+  @ApiProperty()
+  id: number;
 
-    nickName: string;
+  @ApiProperty({ example: 'zhangsan' })
+  username: string;
 
-    email: string;
+  @ApiProperty({ example: '张三' })
+  nickName: string;
 
-    headPic: string;
+  @ApiProperty({ example: 'xx@xx.com' })
+  email: string;
 
-    phoneNumber: string;
+  @ApiProperty({ example: 'xxx.png' })
+  headPic: string;
 
-    isFrozen: boolean;
+  @ApiProperty({ example: '13233333333' })
+  phoneNumber: string;
 
-    isAdmin: boolean;
+  @ApiProperty()
+  isFrozen: boolean;
 
-    createTime: number;
+  @ApiProperty()
+  isAdmin: boolean;
 
-    roles: string[];
+  @ApiProperty()
+  createTime: number;
 
-    permissions: string[]
+  @ApiProperty({ example: ['管理员'] })
+  roles: string[];
+
+  @ApiProperty({ example: 'query_aaa' })
+  permissions: string[];
 }
 export class LoginUserVo {
+  @ApiProperty()
+  userInfo: UserInfo;
 
-    userInfo: UserInfo;
+  @ApiProperty()
+  accessToken: string;
 
-    accessToken: string;
-
-    refreshToken: string;
+  @ApiProperty()
+  refreshToken: string;
 }
